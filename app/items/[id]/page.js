@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 async function getItem(id) {
   try {
-    const res = await fetch(`http://localhost:5000/api/items/${id}`, {
+    const res = await fetch(`${API_URL}/api/items/${id}`, {
       cache: 'no-store'
     });
     if (!res.ok) throw new Error('Failed to fetch item');

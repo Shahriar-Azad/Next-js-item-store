@@ -1,8 +1,10 @@
 import ItemCard from '@/components/ItemCard';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 async function getItems() {
   try {
-    const res = await fetch('http://localhost:5000/api/items', {
+    const res = await fetch(`${API_URL}/api/items`, {
       cache: 'no-store'
     });
     if (!res.ok) throw new Error('Failed to fetch items');
